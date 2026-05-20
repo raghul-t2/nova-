@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Stitch — Wear Your Passion</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">NOVA <span>STITCH</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="shop.html?cat=sports">Sports</a></li>
+      <li><a href="shop.html?cat=kollywood">Kollywood</a></li>
+      <li><a href="shop.html?cat=minimates">MiniMates</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="cart-icon" onclick="window.location.href='cart.html'">🛒 <span class="cart-badge">0</span></div>
+      <a href="login.html" class="btn-login">Login</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow animate-fade-up animate-delay-1">
+        🧵 &nbsp;Wear Your Passion
+      </div>
+      <h1 class="hero-title animate-fade-up animate-delay-2">
+        NOVA<br>
+        <span class="outline">STITCH</span><br>
+        <span class="accent">BRAND</span>
+      </h1>
+      <p class="hero-desc animate-fade-up animate-delay-3">
+        From cricket jerseys to kollywood fandom tees and handcrafted MiniMates key chains — Nova Stitch is where culture meets clothing.
+      </p>
+      <div class="hero-cta animate-fade-up animate-delay-4">
+        <a href="shop.html" class="btn-primary">Shop Now →</a>
+        <a href="#categories" class="btn-outline">Explore</a>
+      </div>
+      <div class="hero-stats animate-fade-up animate-delay-4">
+        <div class="stat-item">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Products</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">12K+</span>
+          <span class="stat-label">Happy Fans</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Collections</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="section-header">
+      <span class="section-tag">Our Collections</span>
+      <h2 class="section-title">SHOP BY CATEGORY</h2>
+      <p class="section-desc">Three worlds of fandom, one brand that unites them all.</p>
+    </div>
+
+    <div class="categories-grid">
+      <!-- SPORTS -->
+      <a href="shop.html?cat=sports" class="cat-card cat-sports">
+        <div class="cat-img-wrap">
+          <div class="cat-icon-bg">🏏</div>
+          <span class="cat-badge">Hot</span>
+        </div>
+        <div class="cat-info">
+          <h3 class="cat-name">SPORTS</h3>
+          <p class="cat-desc">Champion-level apparel for true sports fans. Rep your favourite team in style.</p>
+          <div class="cat-sub">
+            <span class="sub-tag">🏏 Cricket</span>
+            <span class="sub-tag">⚽ Football</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KOLLYWOOD -->
+      <a href="shop.html?cat=kollywood" class="cat-card cat-kollywood">
+        <div class="cat-img-wrap">
+          <div class="cat-icon-bg">🎬</div>
+          <span class="cat-badge">New</span>
+        </div>
+        <div class="cat-info">
+          <h3 class="cat-name">KOLLYWOOD</h3>
+          <p class="cat-desc">Wear your favourite Tamil cinema heroes. Exclusive fandom prints and designs.</p>
+          <div class="cat-sub">
+            <span class="sub-tag">🌟 Fan Tees</span>
+            <span class="sub-tag">🎥 Hoodies</span>
+            <span class="sub-tag">✨ Caps</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- MINIMATES -->
+      <a href="shop.html?cat=minimates" class="cat-card cat-minimates">
+        <div class="cat-img-wrap">
+          <div class="cat-icon-bg">🔑</div>
+          <span class="cat-badge">Trending</span>
+        </div>
+        <div class="cat-info">
+          <h3 class="cat-name">MINIMATES</h3>
+          <p class="cat-desc">Handcrafted mini collectible key chains. Tiny art, big personality.</p>
+          <div class="cat-sub">
+            <span class="sub-tag">🏏 Sports</span>
+            <span class="sub-tag">🎬 Kollywood</span>
+            <span class="sub-tag">🌟 Custom</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner">
+    <h3>🎉 GRAND LAUNCH OFFER — 20% OFF SITEWIDE</h3>
+    <p>Use code <strong style="color:var(--gold)">NOVASTITCH20</strong> at checkout &nbsp;•&nbsp; Free shipping above ₹999</p>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Best Sellers</span>
+      <h2 class="section-title">FEATURED PICKS</h2>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="cricket">Cricket</button>
+      <button class="filter-tab" data-filter="football">Football</button>
+      <button class="filter-tab" data-filter="kollywood">Kollywood</button>
+      <button class="filter-tab" data-filter="minimates">MiniMates</button>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card" data-category="cricket">
+        <div class="product-img" style="background:linear-gradient(135deg,#0d1b2a,#1D78D6)">🏏</div>
+        <div class="product-info">
+          <div class="product-category">Cricket</div>
+          <div class="product-name">India Blue Premium Jersey</div>
+          <div class="product-price">
+            <span class="price-current">₹799</span>
+            <span class="price-old">₹999</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('India Blue Jersey','₹799','🏏')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cricket">
+        <div class="product-img" style="background:linear-gradient(135deg,#1a0a00,#c8a000)">🏆</div>
+        <div class="product-info">
+          <div class="product-category">Cricket</div>
+          <div class="product-name">CSK Fan Edition Tee</div>
+          <div class="product-price">
+            <span class="price-current">₹649</span>
+            <span class="price-old">₹849</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('CSK Fan Tee','₹649','🏆')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="football">
+        <div class="product-img" style="background:linear-gradient(135deg,#0d1b2a,#1D78D6)">⚽</div>
+        <div class="product-info">
+          <div class="product-category">Football</div>
+          <div class="product-name">Chennai FC Street Jersey</div>
+          <div class="product-price">
+            <span class="price-current">₹849</span>
+            <span class="price-old">₹1099</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('Chennai FC Jersey','₹849','⚽')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="kollywood">
+        <div class="product-img" style="background:linear-gradient(135deg,#1a0a00,#D4A017)">🎬</div>
+        <div class="product-info">
+          <div class="product-category">Kollywood</div>
+          <div class="product-name">Thalaivar Signature Hoodie</div>
+          <div class="product-price">
+            <span class="price-current">₹1199</span>
+            <span class="price-old">₹1499</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('Thalaivar Hoodie','₹1199','🎬')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="kollywood">
+        <div class="product-img" style="background:linear-gradient(135deg,#110011,#8B00FF)">🌟</div>
+        <div class="product-info">
+          <div class="product-category">Kollywood</div>
+          <div class="product-name">Vijay63 Fan Edition Tee</div>
+          <div class="product-price">
+            <span class="price-current">₹699</span>
+            <span class="price-old">₹899</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('Vijay63 Fan Tee','₹699','🌟')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="minimates">
+        <div class="product-img" style="background:linear-gradient(135deg,#0a1a0d,#2DC653)">🔑</div>
+        <div class="product-info">
+          <div class="product-category">MiniMates</div>
+          <div class="product-name">Cricket Bat Mini Keychain</div>
+          <div class="product-price">
+            <span class="price-current">₹199</span>
+            <span class="price-old">₹299</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('Cricket Bat Keychain','₹199','🔑')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="minimates">
+        <div class="product-img" style="background:linear-gradient(135deg,#1a0a00,#D4A017)">🎬</div>
+        <div class="product-info">
+          <div class="product-category">MiniMates</div>
+          <div class="product-name">Kollywood Star Keychain</div>
+          <div class="product-price">
+            <span class="price-current">₹249</span>
+            <span class="price-old">₹349</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('Kollywood Keychain','₹249','🎬')">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="football">
+        <div class="product-img" style="background:linear-gradient(135deg,#1a0000,#E63946)">⚽</div>
+        <div class="product-info">
+          <div class="product-category">Football</div>
+          <div class="product-name">Manchester Fan Graphic Tee</div>
+          <div class="product-price">
+            <span class="price-current">₹749</span>
+            <span class="price-old">₹949</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('Manchester Fan Tee','₹749','⚽')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">NOVA <span>STITCH</span></a>
+      <p>Where culture meets clothing. Rep your passion with pride — from the pitch to the silver screen.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="shop.html?cat=sports">Sports</a></li>
+        <li><a href="shop.html?cat=cricket">Cricket</a></li>
+        <li><a href="shop.html?cat=football">Football</a></li>
+        <li><a href="shop.html?cat=kollywood">Kollywood</a></li>
+        <li><a href="shop.html?cat=minimates">MiniMates</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Account</h4>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html?tab=register">Register</a></li>
+        <li><a href="cart.html">My Cart</a></li>
+        <li><a href="#">Orders</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2025 Nova Stitch. All rights reserved.</span>
+    <span>Made with ❤️ in Tamil Nadu</span>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
