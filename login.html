@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Nova Stitch</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">NOVA <span>STITCH</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="cart-icon">🛒 <span class="cart-badge">0</span></div>
+    </div>
+  </nav>
+
+  <!-- AUTH PAGE -->
+  <div class="auth-page">
+    <div class="auth-bg"></div>
+
+    <div class="auth-card">
+      <div class="auth-logo">NOVA <span>STITCH</span></div>
+      <p class="auth-subtitle">Your one-stop fandom fashion store</p>
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Login</button>
+        <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- ERROR -->
+      <div class="error-msg" id="error-msg"></div>
+      <div class="error-msg" id="success-msg" style="background:rgba(45,198,83,0.1);border-color:rgba(45,198,83,0.3);color:#2DC653;"></div>
+
+      <!-- LOGIN FORM -->
+      <div id="form-login">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="login-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="login-password" placeholder="Enter your password" />
+        </div>
+        <div class="form-check" style="justify-content:space-between">
+          <label style="display:flex;align-items:center;gap:0.5rem">
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" style="color:var(--gold);font-size:0.83rem;text-decoration:none">Forgot password?</a>
+        </div>
+        <button class="btn-primary btn-full" onclick="handleLogin()">LOGIN →</button>
+
+        <div class="auth-divider">or continue with</div>
+
+        <div class="social-btns">
+          <button class="social-btn" onclick="socialLogin('Google')">
+            <span>🔵</span> Google
+          </button>
+          <button class="social-btn" onclick="socialLogin('Facebook')">
+            <span>🔷</span> Facebook
+          </button>
+        </div>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="form-register" style="display:none">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" id="reg-fname" placeholder="Arjun" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" id="reg-lname" placeholder="Kumar" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="reg-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-input" id="reg-phone" placeholder="+91 98765 43210" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="reg-password" placeholder="Min 6 characters" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-input" id="reg-confirm" placeholder="Re-enter password" />
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="agree-terms" />
+          <label for="agree-terms">I agree to the <a href="#">Terms & Privacy Policy</a></label>
+        </div>
+        <button class="btn-primary btn-full" onclick="handleRegister()">CREATE ACCOUNT →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Switch tabs
+    function switchTab(tab) {
+      document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
+      document.getElementById('form-register').style.display = tab === 'register' ? 'block' : 'none';
+      document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+      document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+      clearMessages();
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('error-msg');
+      el.textContent = msg; el.style.display = 'block';
+      document.getElementById('success-msg').style.display = 'none';
+    }
+    function showSuccess(msg) {
+      const el = document.getElementById('success-msg');
+      el.textContent = msg; el.style.display = 'block';
+      document.getElementById('error-msg').style.display = 'none';
+    }
+    function clearMessages() {
+      document.getElementById('error-msg').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'none';
+    }
+
+    // LOGIN
+    function handleLogin() {
+      const email = document.getElementById('login-email').value.trim();
+      const pass = document.getElementById('login-password').value;
+
+      if (!email || !pass) return showError('Please fill in all fields.');
+      if (!email.includes('@')) return showError('Please enter a valid email.');
+
+      const users = JSON.parse(localStorage.getItem('ns_users') || '[]');
+      const user = users.find(u => u.email === email && u.password === pass);
+
+      if (!user) return showError('Incorrect email or password.');
+
+      localStorage.setItem('ns_user', JSON.stringify(user));
+      showSuccess('Login successful! Redirecting...');
+      setTimeout(() => window.location.href = 'index.html', 1200);
+    }
+
+    // REGISTER
+    function handleRegister() {
+      const fname = document.getElementById('reg-fname').value.trim();
+      const lname = document.getElementById('reg-lname').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const pass = document.getElementById('reg-password').value;
+      const confirm = document.getElementById('reg-confirm').value;
+      const agreed = document.getElementById('agree-terms').checked;
+
+      if (!fname || !lname || !email || !pass || !confirm)
+        return showError('Please fill in all required fields.');
+      if (!email.includes('@'))
+        return showError('Please enter a valid email address.');
+      if (pass.length < 6)
+        return showError('Password must be at least 6 characters.');
+      if (pass !== confirm)
+        return showError('Passwords do not match.');
+      if (!agreed)
+        return showError('Please agree to the Terms & Privacy Policy.');
+
+      const users = JSON.parse(localStorage.getItem('ns_users') || '[]');
+      if (users.find(u => u.email === email))
+        return showError('An account with this email already exists.');
+
+      const newUser = { name: `${fname} ${lname}`, email, phone, password: pass };
+      users.push(newUser);
+      localStorage.setItem('ns_users', JSON.stringify(users));
+      localStorage.setItem('ns_user', JSON.stringify(newUser));
+
+      showSuccess('Account created! Welcome to Nova Stitch 🎉');
+      setTimeout(() => window.location.href = 'index.html', 1500);
+    }
+
+    // SOCIAL LOGIN (demo)
+    function socialLogin(provider) {
+      const mockUser = { name: `${provider} User`, email: `user@${provider.toLowerCase()}.com` };
+      localStorage.setItem('ns_user', JSON.stringify(mockUser));
+      showSuccess(`Logged in with ${provider}! Redirecting...`);
+      setTimeout(() => window.location.href = 'index.html', 1200);
+    }
+
+    // Check if already logged in
+    if (isLoggedIn()) window.location.href = 'index.html';
+
+    // Check if coming from register link
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('tab') === 'register') switchTab('register');
+  </script>
+</body>
+</html>
